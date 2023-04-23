@@ -1,0 +1,52 @@
+﻿<Window x:Class="Lab1.BrowseWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab1"
+        mc:Ignorable="d"
+        Title="BrowseWindow" Height="650" Width="800"
+        FontSize="16">
+    <Window.Resources>
+        <BitmapImage x:Key="MyImageSource" UriSource="/ImageResources/BackgroundWhite.jpg" />
+        <ImageBrush  x:Key="MyImageBrush" ImageSource="{StaticResource ResourceKey=MyImageSource}"/>
+    </Window.Resources>
+    <Grid Margin="10,10,10,10" Background="{StaticResource ResourceKey=MyImageBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Style="{DynamicResource LabelStyle}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="KATALOG INSTRUMENTÓW DĘTYCH" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" />
+        <Label Style="{DynamicResource LabelStyle}" Grid.Row="0" Grid.Column="2" Content="Wybierz:" FontWeight="Bold"/>
+        <Label Style="{DynamicResource LabelStyle}" Grid.Row="1" Grid.Column="0" Content="Nazwa:" FontWeight="Bold"/>
+        <Label Style="{DynamicResource LabelStyle}" Grid.Row="2" Grid.Column="0" Content="Podgrupa:" FontWeight="Bold"/>
+        <Label Style="{DynamicResource LabelStyle}" Grid.Row="1" Grid.Column="2" Content="Strój:" FontWeight="Bold"/>
+        <Label Style="{DynamicResource LabelStyle}" Grid.Row="2" Grid.Column="2" Content="Skala:" FontWeight="Bold"/>
+        <Label Style="{DynamicResource LabelStyle}" Grid.Row="3" Grid.Column="0" Content="Opis:" FontWeight="Bold"/>
+        <Label Style="{DynamicResource LabelStyle}" Grid.Row="3" Grid.Column="2" Content="Zdjęcie:" FontWeight="Bold"/>
+
+        <ComboBox Grid.Row="0" Grid.Column="3" Name="InstrNameList" DropDownOpened="InstrNameList_DropDown" SelectionChanged="InstrNameList_SelectionChanged"/>
+        <TextBox Style="{DynamicResource TextBoxStyle}" Grid.Row="1" Grid.Column="1" Name="InstrName" IsReadOnly="True"/>
+        <TextBox Style="{DynamicResource TextBoxStyle}" Grid.Row="2" Grid.Column="1" Name="InstrGroup" IsReadOnly="True"/>
+        <TextBox Style="{DynamicResource TextBoxStyle}" Grid.Row="1" Grid.Column="3" Name="InstrTuned" IsReadOnly="True"/>
+        <TextBox Style="{DynamicResource TextBoxStyle}" Grid.Row="2" Grid.Column="3" Name="InstrRange" IsReadOnly="True"/>
+        <TextBox Style="{DynamicResource TextBoxStyle1}" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Name="InstrDescription" IsReadOnly="True"/>
+        <Image Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Name="InstPhoto"/>
+
+        <Button Style="{DynamicResource ButtonStyle}" Grid.Row="5" Grid.Column="0" Content="Edytuj" Name="BtnEdit" Click="BtnEdit_Click" Margin="2"/>
+        <Button Style="{DynamicResource ButtonStyle}" Grid.Row="5" Grid.Column="1" Content="Usuń" Name="BtnDelete" Click="BtnDelete_Click" Margin="2"/>
+        <Button Style="{DynamicResource ButtonStyle}" Grid.Row="5" Grid.Column="3" Content="Zamknij" Name="BtnClose" Click="BtnClose_Click" Margin="2"/>
+        <Button Style="{DynamicResource ButtonStyle}" Grid.Row="5" Grid.Column="2" Content="Zobacz pełna baze" Name="BtnOpenBase" Click="BtnOpenBase_Click" Margin="2"/>
+    </Grid>
+</Window>
